@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Contacting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #EDE7F6;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: white;
+            border-bottom: 2px solid #D1C4E9;
+        }
+        .profile-icon {
+            font-size: 24px;
+        }
+        .emergency-banner {
+            background: #FFCDD2;
+            text-align: center;
+            padding: 20px;
+        }
+        .emergency-banner img {
+            width: 80px;
+        }
+        .content {
+            padding: 20px;
+        }
+        h1 {
+            font-size: 20px;
+        }
+        p {
+            font-size: 14px;
+            color: #333;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px;
+            flex: 1;
+            margin: 5px;
+            border: 2px solid #673AB7;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+        }
+        .cancel {
+            background: white;
+            color: #673AB7;
+        }
+        .confirm {
+            background: #673AB7;
+            color: white;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 15px;
+            background: #4527A0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        nav button {
+            background: transparent;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Emergency Contacting</h2>
+            <div class="profile-icon">👤</div>
+        </header>
+        <div class="emergency-banner">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Exclamation_mark_red.svg/1200px-Exclamation_mark_red.svg.png" alt="Warning" />
+        </div>
+        <div class="content">
+            <h1>Are you sure that you are having an emergency?</h1>
+            <p>Help will be sent to your location immediately if you confirm. A paramedic squad and one of our nurses will arrive in a timely manner.</p>
+            <p><strong>Warning:</strong> Only press "I am in need of immediate help" if you are certain that you are either in great distress, experiencing severe pain, or are undergoing symptoms that your nurse has recommended you seek immediate help for.</p>
+            <div class="button-group">
+                <div class="button cancel">No, I do not need immediate help.</div>
+                <div class="button confirm">I am in need of immediate help</div>
+            </div>
+        </div>
+        <nav>
+            <button onclick="loadPage('schedule')">Schedule</button>
+            <button onclick="loadPage('feedback')">Feedback</button>
+            <button onclick="loadPage('emergency')">Emergency</button>
+            <button onclick="loadPage('checkin')">Check-in</button>
+            <button onclick="loadPage('updates')">Updates</button>
+        </nav>
+    </div>
+</body>
+</html>
