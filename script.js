@@ -5,12 +5,3 @@ document.getElementById('changeColorBtn').addEventListener('click', function() {
     document.body.style.backgroundColor = randomColor;
 });
 
-// Toggle the visibility of text
-document.getElementById('toggleTextBtn').addEventListener('click', function() {
-    const dynamicText = document.getElementById('dynamicText');
-    if (dynamicText.style.display === 'none') {
-        dynamicText.style.display = 'block';
-    } else {
-        dynamicText.style.display = 'none';
-    }
-});
