@@ -14,4 +14,5 @@ function storeResponses() {
     const value = localStorage.getItem(key); // Get the value for the key
     
     console.log(key + ': ' + value); // Print the key and value to the console
+    
 }
