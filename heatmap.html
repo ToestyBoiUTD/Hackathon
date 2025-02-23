@@ -3,87 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physical Tracker</title>
+    <title>Heatmap Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
         }
         .container {
-            background-color: #fff;
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            border-radius: 10px;
         }
-        .instruction {
-            color: #555;
-            font-size: 16px;
-            margin-bottom: 20px;
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-        .pain-scale {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .pain-scale .circle {
-            width: 30px;
-            height: 30px;
-            background-color: #007bff;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .pain-scale .circle:hover {
-            transform: scale(1.2);
-        }
-        .pain-scale .circle.big {
-            width: 50px;
-            height: 50px;
-        }
-        .tracker-label {
-            color: #777;
+        .instructions {
             font-size: 14px;
-            margin-top: 10px;
+            color: gray;
+            margin-bottom: 20px;
+        }
+        /* Sticky Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4B2E83;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .bottom-nav a {
+            text-decoration: none;
+            color: lightgray;
+            text-align: center;
+            font-size: 14px;
+        }
+        .bottom-nav a:hover {
+            color: white;
+        }
+        .bottom-nav span {
+            font-size: 24px;
+            display: block;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Fish's Heartburn's Government's Fin the path</h1>
-        
-        <div class="instruction">
-            Select area of PHYSICAL discomfort
-        </div>
-
-        <div class="instruction">
-            Click here a flash, and ring outward to the most pain to scale. Bigger the pain, bigger the size.
-        </div>
-
-        <div class="pain-scale">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle big"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-        </div>
-
-        <div class="tracker-label">
-            Physical Tracker
-        </div>
+        <div class="title">Physical Tracker</div>
+        <div class="instructions">Click and hold to mark areas of pain. The longer you hold, the darker the red.</div>
+        <canvas id="heatmapCanvas" width="400" height="500"></canvas>
     </div>
+
+    <div class="fixed bottom-0 left-0 w-full bg-purple-800 text-white p-4 flex justify-around rounded-t-2xl">
+        <a href="schedule.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">⏰</span>
+            <p>Schedule</p>
+        </a>
+        <a href="feedback.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">📩</span>
+            <p>Feedback</p>
+        </a>
+        <a href="emergency.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">⚠️</span>
+            <p>Emergency</p>
+        </a>
+        <a href="heatmap.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🔥</span>
+            <p>Check-in</p>
+        </a>
+        <a href="updates.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🔔</span>
+            <p>Updates</p>
+        </a>
+    </div>
+    
+    <script>
+        const canvas = document.getElementById("heatmapCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let isHolding = false;
+        let holdStartTime = 0;
+        let interval;
+
+        function getMousePos(canvas, event) {
+            const rect = canvas.getBoundingClientRect();
+            return {
+                x: event.clientX - rect.left,
+                y: event.clientY - rect.top
+            };
+        }
+
+        canvas.addEventListener("mousedown", (event) => {
+            isHolding = true;
+            holdStartTime = Date.now();
+            const pos = getMousePos(canvas, event);
+            drawHeatmap(pos.x, pos.y);
+            interval = setInterval(() => {
+                drawHeatmap(pos.x, pos.y);
+            }, 100);
+        });
+
+        canvas.addEventListener("mouseup", () => {
+            isHolding = false;
+            clearInterval(interval);
+        });
+
+        function drawHeatmap(x, y) {
+            if (!isHolding) return;
+            const timeHeld = (Date.now() - holdStartTime) / 1000; // time in seconds
+            let opacity = Math.min(timeHeld / 2, 1); // max opacity = 1
+
+            ctx.beginPath();
+            ctx.arc(x, y, 20 + timeHeld * 10, 0, Math.PI * 2); // Bigger circle over time
+            ctx.fillStyle = `rgba(255, 0, 0, ${opacity})`; // Darker red over time
+            ctx.fill();
+        }
+    </script>
+
 </body>
 </html>

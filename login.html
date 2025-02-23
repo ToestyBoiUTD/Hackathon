@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AxxeTaskMaster Login</title>
+    <title>Health Hero Login</title>
     <style>
         * {
             margin: 0;
@@ -68,12 +68,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">AxxeTaskMaster</div>
-        <form>
+        <div class="logo">Health Hero</div>
+        <form onsubmit="redirectToSchedule(event)">
             <input type="email" placeholder="Email">
             <input type="password" placeholder="Password">
             <button type="submit">Sign In</button>
         </form>
+
+        <script>
+            function redirectToSchedule(event) {
+                event.preventDefault(); // Prevents the form from submitting the traditional way
+                window.location.href = "schedule.html"; // Redirects to the schedule page
+            }
+        </script>
+
         <div class="forgot">
             <a href="#">Forgot password?</a>
         </div>

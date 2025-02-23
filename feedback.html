@@ -3,82 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        .question {
-            margin-bottom: 20px;
-        }
-        .question p {
-            color: #555;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-        .buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-        .buttons button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .buttons button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Feedback</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>Do you like the current state of your care?</h1>
-        <p>Let us know!</p>
-
-        <div class="question">
-            <p>Do you feel like our nurses have listened to you and interacted?</p>
+<body class="bg-gray-100 text-black flex flex-col min-h-screen">
+    
+    <!-- Header -->
+    <div class="bg-white p-6 shadow-md flex justify-between items-center">
+        <div>
+            <p class="text-gray-500 text-sm">Do you like the current state of your care?</p>
+            <p class="text-black text-lg font-semibold">Let us know!</p>
         </div>
-
-        <div class="question">
-            <p>Does this app motivate you to stay on-to-date with all your tasks?</p>
-        </div>
-
-        <div class="question">
-            <p>If applicable, have you had any emergencies and has help arrived within a reasonable time?</p>
-        </div>
-
-        <div class="question">
-            <p>How can we make this app better?</p>
-        </div>
-
-        <div class="buttons">
-            <button>Scheduled</button>
-            <button>Feedback</button>
-            <button>Emergency</button>
-            <button>Check-in</button>
-            <button>Updates</button>
+        <div class="w-12 h-12 bg-purple-200 rounded-full flex items-center justify-center">
+            <span class="text-purple-700 text-2xl">👤</span>
         </div>
     </div>
+
+    <!-- Scrollable Form Container -->
+    <div class="flex-1 overflow-y-auto p-6" style="max-height: calc(100vh - 140px);">
+        <h1 class="text-3xl font-bold">Feedback</h1>
+        
+        <div class="mt-4">
+            <label class="block font-semibold mb-1">Do you feel like our nurses have listened to you and interacted?</label>
+            <textarea class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
+        </div>
+
+        <div class="mt-4">
+            <label class="block font-semibold mb-1">Does this app motivate you to stay on-to-date with all your tasks?</label>
+            <textarea class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
+        </div>
+
+        <div class="mt-4">
+            <label class="block font-semibold mb-1">If applicable, have you had any emergencies and has help arrived within a reasonable time?</label>
+            <textarea class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
+        </div>
+
+        <div class="mt-4 mb-20">
+            <label class="block font-semibold mb-1">How can we make this app better?</label>
+            <textarea class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
+        </div>
+    </div>
+
+    <!-- Sticky Submit Button -->
+    <div class="bg-white p-4 shadow-md fixed bottom-14 left-0 w-full flex justify-center">
+        <a href="thankyou.html" class="w-11/12 bg-purple-700 text-white p-3 rounded-lg text-center hover:bg-purple-800 transition">
+            Submit Feedback
+        </a>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bg-purple-800 text-white p-4 flex justify-around rounded-t-2xl fixed bottom-0 left-0 w-full">
+        <a href="schedule.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">⏰</span>
+            <p>Schedule</p>
+        </a>
+        <a href="feedback.html" class="flex flex-col items-center text-white">
+            <span class="text-2xl">📩</span>
+            <p>Feedback</p>
+        </a>
+        <a href="emergency.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">⚠️</span>
+            <p>Emergency</p>
+        </a>
+        <a href="heatmap.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🔥</span>
+            <p>Check-in</p>
+        </a>
+        <a href="updates.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🔔</span>
+            <p>Updates</p>
+        </a>
+    </div>
+
 </body>
 </html>
