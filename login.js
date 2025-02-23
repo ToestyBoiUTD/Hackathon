@@ -1,4 +1,15 @@
+function buttonClick(event){
+    event.preventDefault();  // Prevent the form from submitting and refreshing the page
+
+    // Log to confirm the button click and form submission
+    console.log('Sign In button clicked!');
+
+    // Your custom logic here
+    // For example, redirecting to another page or displaying a message
+    redirectToSchedule();
+};
+
 function redirectToSchedule(event) {
-    event.preventDefault(); // Prevents the form from submitting the traditional way
-    window.location.href = "schedule.html"; // Redirects to the schedule page
+    //window.location.href = "schedule.html"; // Redirects to the schedule page
 }
+
