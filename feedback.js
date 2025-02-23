@@ -10,6 +10,8 @@ function storeResponses() {
   // Store the responses in localStorage
   localStorage.setItem('feedback', feedback);
 
-  // Optionally, log to the console (for debugging)
-  console.log('Responses stored in localStorage.');
+    const key = localStorage.key(2); // Get the key at index 'i'
+    const value = localStorage.getItem(key); // Get the value for the key
+    
+    console.log(key + ': ' + value); // Print the key and value to the console
 }
