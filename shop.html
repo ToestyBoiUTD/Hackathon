@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Shop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function purchaseItem(button, cost) {
+            let coinElement = document.getElementById("current-coins");
+            let currentCoins = parseInt(coinElement.innerText);
+            
+            if (currentCoins >= cost) {
+                coinElement.innerText = currentCoins - cost;
+                button.innerText = "Purchased!";
+                button.disabled = true;
+                button.classList.add("text-gray-500", "cursor-not-allowed");
+            } else {
+                alert("Not enough coins!");
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div class="w-1/4 bg-purple-700 p-6 flex flex-col gap-4">
+            <h1 class="text-2xl font-bold">Coin Shop</h1>
+            <div class="bg-purple-500 p-4 rounded-lg">
+                <p>Current Coins:</p>
+                <h2 id="current-coins" class="text-xl font-bold">100</h2>
+            </div>
+            <a href="shop.html" class="mt-auto bg-white text-purple-700 font-bold py-2 px-4 rounded-lg text-center">Go to Shop</a>
+        </div>
+
+        <!-- Coin Shop Items -->
+        <div class="flex-1 bg-gray-100 text-black p-6">
+            <div class="grid grid-cols-2 gap-4">
+                <button onclick="purchaseItem(this, 5000)" class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                    <span>Amazon Coupon - 5000 Coins</span>
+                </button>
+                <button onclick="purchaseItem(this, 5000)" class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                    <span>Target Gift Card - 5000 Coins</span>
+                </button>
+                <button onclick="purchaseItem(this, 5000)" class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                    <span>Walmart Coupon - 5000 Coins</span>
+                </button>
+                <button onclick="purchaseItem(this, 5000)" class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                    <span>Costco Gift Card - 5000 Coins</span>
+                </button>
+                <button onclick="purchaseItem(this, 5000)" class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                    <span>Chick-fil-A Coupon - 5000 Coins</span>
+                </button>
+                <button onclick="purchaseItem(this, 5000)" class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+                    <span>Hobby Lobby Gift Card - 5000 Coins</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="fixed bottom-0 left-0 w-full bg-purple-800 text-white p-4 flex justify-around rounded-t-2xl">
+        <a href="schedule.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">⏰</span>
+            <p>Schedule</p>
+        </a>
+        <a href="feedback.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">📩</span>
+            <p>Feedback</p>
+        </a>
+        <a href="emergency.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">⚠️</span>
+            <p>Emergency</p>
+        </a>
+        <a href="heatmap.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🔥</span>
+            <p>Heat Map</p>
+        </a>
+        <a href="updates.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🔔</span>
+            <p>Updates</p>
+        </a>
+          </a>
+        <a href="shop.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🛍️</span>
+            <p>shop</p>
+        </a>
+    </div>
+</body>
+</html>
