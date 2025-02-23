@@ -17,7 +17,6 @@ function updateCoins() {
 }
 setInterval(updateTime, 1);
 window.onload = updateCoins;
-
 function completeTask(button) {
     updateTime;
     button.disabled = true;
