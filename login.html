@@ -17,7 +17,6 @@
             align-items: center;
             height: 100vh;
             background: linear-gradient(to bottom, #4B2E83, #9B72CF);
-        
         }
         .container {
             background: white;
@@ -54,6 +53,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 10px;
         }
         button:hover {
             opacity: 0.8;
@@ -66,22 +66,44 @@
             text-decoration: none;
             color: #4B2E83;
         }
+        .signup-btn {
+            background: #4B2E83;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .signup-btn:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">Health Hero</div>
         <form onsubmit="redirectToSchedule(event)">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
             <button type="submit">Sign In</button>
         </form>
 
-        <script src = "login.js"></script>
+        <script src="login.js"></script>
 
         <div class="forgot">
             <a href="#">Forgot password?</a>
         </div>
+        
+        <!-- Sign Up Button -->
+        <button class="signup-btn" onclick="redirectToSignup()">Sign Up</button>
     </div>
+
+    <script>
+        function redirectToSignup() {
+            window.location.href = "signup.html";
+        }
+    </script>
 </body>
 </html>
