@@ -11,8 +11,17 @@
             document.getElementById("current-time").innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             document.getElementById("current-date").innerText = now.toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" });
         }
+        
         setInterval(updateTime, 60000);
         window.onload = updateTime;
+        
+        function completeTask(button) {
+            button.disabled = true;
+            button.classList.add("bg-gray-400", "cursor-not-allowed");
+            let coinElement = document.getElementById("current-coins");
+            let currentCoins = parseInt(coinElement.innerText);
+            coinElement.innerText = currentCoins + 100;
+        }
     </script>
 </head>
 <body class="bg-gray-900 text-white">
@@ -22,7 +31,7 @@
             <h1 class="text-2xl font-bold">Schedule</h1>
             <div class="bg-purple-500 p-4 rounded-lg">
                 <p>Current Coins:</p>
-                <h2 class="text-xl font-bold">100</h2>
+                <h2 id="current-coins" class="text-xl font-bold">100</h2>
             </div>
             <div>
                 <p>Today's Date:</p>
@@ -49,7 +58,7 @@
                         <p class="text-gray-600">Take your morning medication.</p>
                         <p class="text-sm text-gray-500">8:30 AM - 9:30 AM</p>
                     </div>
-                    <span class="text-gray-500 text-2xl">⏰</span>
+                    <button onclick="completeTask(this)" class="bg-purple-500 text-white px-4 py-2 rounded">Complete</button>
                 </div>
                 <div class="mt-4 p-4 border rounded-lg flex justify-between items-center">
                     <div>
@@ -57,7 +66,7 @@
                         <p class="text-gray-600">Make sure your nurse has been contacted.</p>
                         <p class="text-sm text-gray-500">12:00 PM - 4:00 PM</p>
                     </div>
-                    <span class="text-gray-500 text-2xl">⏰</span>
+                    <button onclick="completeTask(this)" class="bg-purple-500 text-white px-4 py-2 rounded">Complete</button>
                 </div>
                 <div class="mt-4 p-4 border rounded-lg flex justify-between items-center">
                     <div>
@@ -65,7 +74,7 @@
                         <p class="text-gray-600">Complete the wellness check given to you.</p>
                         <p class="text-sm text-gray-500">Immediately after contacting your nurse</p>
                     </div>
-                    <span class="text-gray-500 text-2xl">⏰</span>
+                    <button onclick="completeTask(this)" class="bg-purple-500 text-white px-4 py-2 rounded">Complete</button>
                 </div>
                 <div class="mt-4 p-4 border rounded-lg flex justify-between items-center">
                     <div>
@@ -73,7 +82,7 @@
                         <p class="text-gray-600">Don’t forget about your evening medication.</p>
                         <p class="text-sm text-gray-500">8:00 PM - 9:00 PM</p>
                     </div>
-                    <span class="text-gray-500 text-2xl">⏰</span>
+                    <button onclick="completeTask(this)" class="bg-purple-500 text-white px-4 py-2 rounded">Complete</button>
                 </div>
             </div>
         </div>
@@ -81,26 +90,26 @@
 
     <!-- Bottom Navigation -->
     <div class="fixed bottom-0 left-0 w-full bg-purple-800 text-white p-4 flex justify-around rounded-t-2xl">
-        <div class="flex flex-col items-center text-gray-300">
+        <a href="schedule.html" class="flex flex-col items-center text-gray-300 hover:text-white">
             <span class="text-2xl">⏰</span>
             <p>Schedule</p>
-        </div>
-        <div class="flex flex-col items-center text-gray-300">
+        </a>
+        <a href="feedback.html" class="flex flex-col items-center text-gray-300 hover:text-white">
             <span class="text-2xl">📩</span>
             <p>Feedback</p>
-        </div>
-        <div class="flex flex-col items-center text-gray-300">
+        </a>
+        <a href="emergency.html" class="flex flex-col items-center text-gray-300 hover:text-white">
             <span class="text-2xl">⚠️</span>
             <p>Emergency</p>
-        </div>
-        <div class="flex flex-col items-center text-gray-300">
-            <span class="text-2xl">✅</span>
+        </a>
+        <a href="heatmap.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🔥</span>
             <p>Check-in</p>
-        </div>
-        <div class="flex flex-col items-center text-gray-300">
+        </a>
+        <a href="updates.html" class="flex flex-col items-center text-gray-300 hover:text-white">
             <span class="text-2xl">🔔</span>
             <p>Updates</p>
-        </div>
+        </a>
     </div>
 </body>
 </html>

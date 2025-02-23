@@ -1,123 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emergency Contacting</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #EDE7F6;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
-        .container {
-            background: white;
-            width: 90%;
-            max-width: 600px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            background: white;
-            border-bottom: 2px solid #D1C4E9;
-        }
-        .profile-icon {
-            font-size: 24px;
-        }
-        .emergency-banner {
-            background: #FFCDD2;
-            text-align: center;
-            padding: 20px;
-        }
-        .emergency-banner img {
-            width: 80px;
-        }
-        .content {
-            padding: 20px;
-        }
-        h1 {
-            font-size: 20px;
-        }
-        p {
-            font-size: 14px;
-            color: #333;
-        }
-        .button-group {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-        .button {
-            padding: 10px;
-            flex: 1;
-            margin: 5px;
-            border: 2px solid #673AB7;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            text-align: center;
-        }
-        .cancel {
-            background: white;
-            color: #673AB7;
-        }
-        .confirm {
-            background: #673AB7;
-            color: white;
-        }
-        nav {
-            display: flex;
-            justify-content: space-around;
-            padding: 15px;
-            background: #4527A0;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        nav button {
-            background: transparent;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h2>Emergency Contacting</h2>
-            <div class="profile-icon">👤</div>
-        </header>
-        <div class="emergency-banner">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Exclamation_mark_red.svg/1200px-Exclamation_mark_red.svg.png" alt="Warning" />
-        </div>
-        <div class="content">
-            <h1>Are you sure that you are having an emergency?</h1>
-            <p>Help will be sent to your location immediately if you confirm. A paramedic squad and one of our nurses will arrive in a timely manner.</p>
-            <p><strong>Warning:</strong> Only press "I am in need of immediate help" if you are certain that you are either in great distress, experiencing severe pain, or are undergoing symptoms that your nurse has recommended you seek immediate help for.</p>
-            <div class="button-group">
-                <div class="button cancel">No, I do not need immediate help.</div>
-                <div class="button confirm">I am in need of immediate help</div>
+<body class="bg-gray-100 text-black flex flex-col h-screen">
+
+    <!-- Emergency Alert Section -->
+    <div class="flex-1 flex flex-col items-center justify-center text-center px-6">
+        <div class="bg-red-100 w-full p-6 flex flex-col items-center">
+            <div class="bg-red-500 text-white rounded-full p-6 mb-4">
+                <span class="text-6xl">❗</span>
             </div>
+            <h1 class="text-2xl font-bold">Are you sure that you are having an emergency?</h1>
+            <p class="mt-2 text-gray-700">
+                Help will be sent to your location immediately if you confirm. A paramedic squad and one of our nurses will arrive in a timely manner.
+            </p>
+            <p class="mt-4 text-sm text-gray-600">
+                ⚠️ Only press “I am in need of immediate help” if you are certain that you are in great distress, experiencing severe pain, 
+                or have symptoms your nurse recommended seeking immediate help for.
+            </p>
         </div>
-        <nav>
-            <button onclick="loadPage('schedule')">Schedule</button>
-            <button onclick="loadPage('feedback')">Feedback</button>
-            <button onclick="loadPage('emergency')">Emergency</button>
-            <button onclick="loadPage('checkin')">Check-in</button>
-            <button onclick="loadPage('updates')">Updates</button>
-        </nav>
+
+        <!-- Buttons -->
+        <div class="mt-6 flex gap-4">
+            <button onclick="redirectToSchedule()" class="px-6 py-3 border border-gray-500 rounded-full text-gray-600 hover:bg-gray-200">
+                No, I do not need immediate help.
+            </button>
+            <a href="emergency-confirm.html" class="px-6 py-3 bg-purple-700 text-white rounded-full hover:bg-purple-800">
+                I am in need of immediate help
+            </a>
+        </div>
     </div>
+
+    <!-- Bottom Navigation Bar -->
+    <div class="fixed bottom-0 left-0 w-full bg-purple-800 text-white p-4 flex justify-around rounded-t-2xl">
+        <a href="schedule.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">⏰</span>
+            <p>Schedule</p>
+        </a>
+        <a href="feedback.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">📩</span>
+            <p>Feedback</p>
+        </a>
+        <a href="emergency.html" class="flex flex-col items-center text-white font-bold">
+            <span class="text-2xl">⚠️</span>
+            <p>Emergency</p>
+        </a>
+        <a href="heatmap.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🔥</span>
+            <p>Check-in</p>
+        </a>
+        <a href="updates.html" class="flex flex-col items-center text-gray-300 hover:text-white">
+            <span class="text-2xl">🔔</span>
+            <p>Updates</p>
+        </a>
+    </div>
+
+    <script>
+        function redirectToSchedule() {
+            window.location.href = "schedule.html"; // Redirects to the schedule page
+        }
+    </script>
+
 </body>
 </html>
