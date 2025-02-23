@@ -69,7 +69,10 @@
     <div class="container">
         <div class="title">Physical Tracker</div>
         <div class="instructions">Click and hold to mark areas of pain. The longer you hold, the darker the red.</div>
-        <canvas id="heatmapCanvas" width="400" height="500"></canvas>
+        <div style="position: relative; width: 400px; height: 500px; margin: 0 auto;">
+            <canvas id="heatmapCanvas" width="400" height="500" style="position: absolute; top: 0; left: 0; z-index: 2; border: 1px solid #ddd; border-radius: 10px;"></canvas>
+            <div class="text-[30rem]" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; pointer-events: none;">🧍</div>
+        </div>
     </div>
 
     <!-- Bottom Navigation -->
