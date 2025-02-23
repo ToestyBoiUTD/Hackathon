@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src = "feedback.js"></script>
 </head>
 <body class="bg-gray-100 text-black flex flex-col min-h-screen">
     
@@ -25,33 +26,32 @@
         
         <div class="mt-4">
             <label class="block font-semibold mb-1">Do you feel like our nurses have listened to you and interacted?</label>
-            <textarea class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
+            <textarea id="textarea1" class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
         </div>
 
         <div class="mt-4">
             <label class="block font-semibold mb-1">Does this app motivate you to stay on-to-date with all your tasks?</label>
-            <textarea class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
+            <textarea id="textarea2" class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
         </div>
 
         <div class="mt-4">
             <label class="block font-semibold mb-1">If applicable, have you had any emergencies and has help arrived within a reasonable time?</label>
-            <textarea class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
+            <textarea id="textarea3" class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
         </div>
 
         <div class="mt-4 mb-20">
             <label class="block font-semibold mb-1">How can we make this app better?</label>
-            <textarea class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
+            <textarea id="textarea4" class="w-full p-3 border rounded-lg focus:ring focus:ring-purple-300" rows="3" placeholder="Type here"></textarea>
         </div>
     </div>
 
     <!-- Sticky Submit Button -->
     <div class="bg-white p-4 shadow-md fixed bottom-14 left-0 w-full flex justify-center">
-        <a href="thankyou.html" class="w-11/12 bg-purple-700 text-white p-3 rounded-lg text-center hover:bg-purple-800 transition">
+        <a onclick="storeResponses()" class="w-11/12 bg-purple-700 text-white p-3 rounded-lg text-center hover:bg-purple-800 transition">
             Submit Feedback
         </a>
     </div>
 
-    <!-- Bottom Navigation -->
     <!-- Bottom Navigation -->
     <div class="fixed bottom-0 left-0 w-full bg-purple-800 text-white p-4 flex justify-around rounded-t-2xl">
         <a href="schedule.html" class="flex flex-col items-center text-gray-300 hover:text-white">
@@ -74,12 +74,10 @@
             <span class="text-2xl">🔔</span>
             <p>Updates</p>
         </a>
-          </a>
         <a href="shop.html" class="flex flex-col items-center text-gray-300 hover:text-white">
             <span class="text-2xl">🛍️</span>
-            <p>shop</p>
+            <p>Shop</p>
         </a>
     </div>
-
 </body>
 </html>

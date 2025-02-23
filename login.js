@@ -5,13 +5,16 @@ function buttonClick(event){
     const emails = JSON.parse(localStorage.getItem("emails")) || [];
     const passwords = JSON.parse(localStorage.getItem("passwords")) || [];
     for (i in emails) {
+        
         if (emails[i] === email)
         {
+            console.log(i);
             if (passwords[i] === password){
                 alert("Successful login! Redirecting to schedule...")
                 window.location.href = "schedule.html"; // Redirects to the schedule page
-                break;
+                return;
             }
+            
             else {
                 alert ("Password incorrect, please try again")
                 return; 
