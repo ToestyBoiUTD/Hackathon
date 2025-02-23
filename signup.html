@@ -51,20 +51,15 @@
 <body>
     <div class="container">
         <h1>Sign Up</h1>
-        <form onsubmit="redirectToLogin(event)">
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <input type="text" placeholder="Healthcare Provider" required>
+        <form onsubmit="signUpButton(event)">
+            <input type="text" id="Full-Name" placeholder="Full Name" required>
+            <input type="email" id="Email" placeholder="Email" required>
+            <input type="password" id="Password" placeholder="Password" required>
+            <input type="text" id="Provider" placeholder="Healthcare Provider" required>
             <button type="submit">Sign Up</button>
         </form>
     </div>
 
-    <script>
-        function redirectToLogin(event) {
-            event.preventDefault(); // Prevent form submission
-            window.location.href = "login.html"; // Redirect to login page
-        }
-    </script>
+    <script src = signup.js></script>
 </body>
 </html>
